@@ -1,0 +1,64 @@
+<<!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hello World</title>
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+        <style>
+            .classA {
+                color: red;
+            }
+
+            .classB {
+                font-size: 150%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Helloworld</h1>
+        <hr>
+        <div id="app">
+            <p>
+                <img v-bind:src="imgSrc">
+            </p>
+            <!-- 冒号(:)是v-bind的简写形式-->
+            <p>
+                <a :href="webUrl" target="_blank">开源中国社区</a>
+            </p>
+            <hr>
+            <div :class="className">1、直接绑定CSS样式</div>
+            <div :class="{classA:isOK}">2、绑定某个class的条件判断</div>
+            <div :class="[classA,classB]">3、绑定class的组合</div>
+            <div :class="isOK ? classA : classB">4、绑定class的三元表达式判断</div>
+            <div :style="{color:styleColor,fontSize:font}">5、直接绑定style</div>
+            <div :style="styleObject">5、绑定style样式对象</div>
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    imgSrc: 'http://7xjyw1.com1.z0.glb.clouddn.com/dashang30.jpg',
+                    webUrl: 'http://www.oschina.net/',
+                    className: 'classA',
+                    isOK: false,
+                    classA: 'classA',
+                    classB: 'classB',
+                    styleColor: 'blue',
+                    font: '150%',
+                    styleObject: {
+                        color: 'green',
+                        fontSize: '40px'
+                    }
+                }
+            })
+        </script>
+    </body>
+
+    </html>

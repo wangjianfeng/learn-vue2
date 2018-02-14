@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>Vue.extend实例</title>
+</head>
+<body>
+    <h1>Vue.extend实例</h1>
+    <hr>
+    <div id="app">
+       <div id="mount-point"></div>
+       <hr>
+       <author></author>
+       <hr>
+       <div id="author"></div>
+        
+    </div>
+
+    <!-- data 选项是特例，需要注意 - 在 Vue.extend() 中它必须是函数-->
+    <script type="text/javascript">
+        var Profile = Vue.extend({
+            template:'<p>{{firstName}} {{lastName}} aka {{alias}}</p>',
+            data:function(){
+                return {
+                    firstName:'Wang',
+                    lastName:'Jianfeng',
+                    alias:'Alex'
+                }
+            }
+        });
+
+        var Author = Vue.extend({
+            template:"<p><a :href='authorURL'>{{authorName}}</a></p>",
+            data:function(){
+                return {
+                    authorURL:'http://jspang.com',
+                    authorName:'Alex Wang'
+                }
+            }
+        })
+
+        new Profile().$mount('#mount-point');
+        new Author().$mount('author');
+        new Author().$mount('#author');
+    
+    </script>
+</body>
+</html>

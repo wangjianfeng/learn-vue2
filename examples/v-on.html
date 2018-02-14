@@ -1,0 +1,53 @@
+<<!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>v-on实例</title>
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+    </head>
+
+    <body>
+        <h1>v-on事件监听器</h1>
+        <hr>
+        <div id="app">
+            本场比赛得分：{{count}}
+            <br>
+            <button v-on:click="addCount">加分</button>
+            <!-- @符号是v-on的简写形式-->
+            <button @click="jianCount">减分</button>
+            <br>
+            <hr>
+            <input type="text" v-on:keyup.enter="onEnter" v-model="secondCount">
+        </div>
+
+        <script type="text/javascript">
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    count: 0,
+                    secondCount: 0
+                },
+                methods: {
+                    addCount: function () {
+                        return this.count++;
+                    },
+                    jianCount: function () {
+                        if (this.count == 0)
+                            return this.count
+                        else
+                            return this.count--;
+                    },
+                    onEnter: function () {
+                        if (this.secondCount == null)
+                            this.count = 0;
+                        else
+                            this.count = this.count + parseInt(this.secondCount);
+                    }
+                }
+            })
+        </script>
+    </body>
+
+    </html>

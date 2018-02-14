@@ -1,0 +1,93 @@
+<<!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>v-model实例</title>
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+    </head>
+
+    <body>
+        <h1>v-model数据源绑定</h1>
+        <hr>
+        <div id="app">
+            <p>原始文本信息：{{message}}</p>
+            <h3>文本框</h3>
+            <p>v-model：
+                <input type="text" v-model="message">
+            </p>
+            <hr>
+            <h3>文本区域</h3>
+            <p style="white-space: pre-line;">textarea绑定：{{ messageArea }}</p>
+            <br>
+            <textarea cols="30" rows="10" v-model="messageArea"></textarea>
+            <hr>
+            <h3>单选框绑定一个值</h3>
+            <input type="checkbox" id="checkbox" v-model="checked">
+            <label for="checkbox">{{checked}}</label>
+            <hr>
+            <h3>多选框绑定一个数组</h3>
+            <input type="checkbox" id="alex" value="alex" v-model="names">
+            <label for="alex">alex</label>
+            <br>
+            <input type="checkbox" id="hellen" value="hellen" v-model="names">
+            <label for="hellen">hellen</label>
+            <br>
+            <input type="checkbox" id="mark" value="mark" v-model="names">
+            <label for="mark">mark</label>
+            <br>
+            <input type="checkbox" id="jack" value="jack" v-model="names">
+            <label for="jack">jack</label>
+            <br>
+            <span>Check Names:{{names}}</span>
+            <hr>
+            <h3>单选按钮绑定值</h3>
+            <input type="radio" id="male" value="男" v-model="sex">
+            <label for="male">男</label>
+            <br>
+            <input type="radio" id="female" value="女" v-model="sex">
+            <label for="female">女</label>
+            <br>
+            <span>单选按钮值为：{{sex}}</span>
+            <hr>
+            <h3>单选下拉菜单绑定值</h3>
+            <select v-model="selected">
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
+            <br>
+            <span>Selected Value：{{selected}}</span>
+            <hr>
+            <h3>使用v-for渲染动态选型</h3>
+            <select v-model="selectCity">
+                <option v-for="option in options" v-bind:value="option.location">{{option.city}}</option>
+            </select>
+            <br>
+            <span>Selected Location：{{selectCity}}</span>
+        </div>
+
+        <script type="text/javascript">
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    message: 'Hello Vue',
+                    messageArea: 'fjadkljflkdjflkdsjflsd  fdsaflkadjflds ',
+                    checked: false,
+                    names: [],
+                    sex: '',
+                    selected: '',
+                    selectCity: '',
+                    options: [
+                        { location: '浙江', city: '宁波' },
+                        { location: '江苏', city: '南京' },
+                        { location: '北京', city: '北京' }
+                    ]
+                }
+
+            })
+        </script>
+    </body>
+
+    </html>
