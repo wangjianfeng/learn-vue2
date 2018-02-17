@@ -1,0 +1,37 @@
+<<!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hello World</title>
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+    </head>
+
+    <body>
+        <h1>Helloworld</h1>
+        <hr>
+        <div id="app">
+            <alex></alex>
+            <hellen></hellen>
+        </div>
+
+        <script type="text/javascript">
+            Vue.component('alex',{
+                template:`<div style="color: red;">我是全局的Alex组件</div>`
+            })
+
+            var child = {
+                template:`<div style="color: green;">我是局部的Alex组件</div>`
+            }
+
+            var app = new Vue({
+                el: '#app',
+                components:{
+                    'hellen':child
+                }
+            })
+        </script>
+    </body>
+
+    </html>
