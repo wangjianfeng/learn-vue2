@@ -1,0 +1,47 @@
+<<!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hello World</title>
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+    </head>
+
+    <body>
+        <h1>Helloworld</h1>
+        <hr>
+        <div id="app">
+            <alex></alex>
+        </div>
+
+        <script type="text/javascript">
+
+            var child = {
+                template:`<div style="color: green;">我是子组件child</div>`
+            }
+
+            var parent = {
+                template:`
+                    <div style="color: red;">
+                        <p>我是父组件Alex</p>
+                        <child></child>
+                    </div>
+                    `,
+                components:{
+                    'child':child
+                }
+            }
+
+
+
+            var app = new Vue({
+                el: '#app',
+                components:{
+                    'alex':parent
+                }
+            })
+        </script>
+    </body>
+
+    </html>
